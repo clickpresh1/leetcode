@@ -1,26 +1,14 @@
-// DRAFT
-// DRAFT
-// DRAFT
-
 import java.util.Arrays;
-
 class Solution {
-    public static void moveZeroes(int[] nums) {
+    public void moveZeroes(int[] nums) {
+        int val = 0;
         for (int i = 0; i < nums.length; i++) {
-            if ((nums[i] == 0) && (i + 1 < nums.length)) {
-                for (int j = i + 1; j < nums.length; j++) {
-                    if (nums[j] != 0) {
-                        int helper = nums[j];
-                        nums[j] = nums[i];
-                        nums[i] = helper;
-                        break;
-                    }
-                }
+            if (nums[i] != 0) {
+                int helper = nums[val];
+                nums[val] = nums[i];
+                nums[i]= helper;
+                val += 1;
             }
-        }
-
-        System.out.println(Arrays.toString(nums));
-        
-    } 
-
+        }  
+    }
 }
