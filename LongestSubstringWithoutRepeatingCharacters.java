@@ -47,4 +47,36 @@ class Solution {
         // System.out.println(lengthOfLongestSubstring("pwwkew"));
         System.out.println(lengthOfLongestSubstring("tmmzuxt"));
     }
+} 
+
+
+// import java.util.ArrayList;
+// import java.util.Arrays;
+// import java.util.HashSet;
+// import java.util.List;
+// import java.util.Set;
+
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int val = 0;
+        int output = 0;
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i; j < s.length(); j++) {
+                String sub = s.substring(i, j + 1);
+                char[] subCharArr = sub.toCharArray();
+                Set<Character> subSet = new HashSet<>();
+                for (Character k : subCharArr) {
+                    subSet.add(k);
+                } 
+                if (subSet.size() == subCharArr.length) {
+                    val = subSet.size();
+                    output = Math.max(output, val);
+                }
+
+            }
+        }
+
+        return output; 
+    }
+
 }
