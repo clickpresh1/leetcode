@@ -1,3 +1,5 @@
+// First thoughts...
+
 
 class Solution {
     public static String longestPalindrome(String s) {
