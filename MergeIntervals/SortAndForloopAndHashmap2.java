@@ -1,4 +1,4 @@
-// a different type of sort
+// A different type of sort; improves runtime
 // L = Math.min(L, intervals[i + 1][0]);, is add to improve L
 
 import java.lang.reflect.Array;
