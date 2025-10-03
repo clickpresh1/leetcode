@@ -33,6 +33,6 @@ class Solution {
             }       
         } 
 
-        return list.toArray(new int[list.size()][]);
+        return list.toArray(new int[list.size()][2]);
     } 
 }
