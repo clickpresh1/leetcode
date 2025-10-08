@@ -11,19 +11,19 @@ class Solution {
             }
         } 
 
-        String result = "";
+        StringBuilder sb = new StringBuilder();
         int carry = 0;
         for (int i = a.length() - 1; i >= 0; i--) {
             int sum = (Character.getNumericValue(a.charAt(i)) + Character.getNumericValue(b.charAt(i)) + carry);
             int q = sum % 2;
             carry = sum / 2;
-            result = q + result;
+            sb.append(q);
         } 
 
         if (carry != 0) {
-            result = carry + result;
+            sb.append(carry);
         }
 
-        return result;
+        return sb.reverse().toString();
     }
 }
