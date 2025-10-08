@@ -14,7 +14,7 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         int carry = 0;
         for (int i = a.length() - 1; i >= 0; i--) {
-            int sum = (Character.getNumericValue(a.charAt(i)) + Character.getNumericValue(b.charAt(i)) + carry);
+            int sum = (a.charAt(i) - '0') + (b.charAt(i) - '0') + carry;
             int q = sum % 2;
             carry = sum / 2;
             sb.append(q);
