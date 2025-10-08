@@ -7,12 +7,10 @@ class Solution {
         
         while ((m >= 0) || (n >= 0) || carry > 0) {
             if (m >= 0) {
-                carry += Character.getNumericValue(a.charAt(m));
-                m -= 1;
+                carry += a.charAt(m--) - '0';
             } 
             if (n >= 0) {
-                carry += Character.getNumericValue(b.charAt(n));
-                n -= 1;
+                carry += b.charAt(n--) - '0';
             } 
 
             int sum = carry;
