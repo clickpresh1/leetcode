@@ -1,7 +1,7 @@
 // i'm not sure if this is brute force or not
-// it beat 100.00%, with a 1ms runtime
-// but it looks like brute force to me, since i used a for-loop to partially traverse the merged array twice
-// so, i'll just call it Iterator.java for now
+// it doesn't produce TLE
+// but it does look like brute force to me, since i used a for-loop to partially traverse the merged array twice: equivalent to a full traversal
+// so, i'll just call it Iterator.java
 
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
