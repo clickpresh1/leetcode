@@ -10,10 +10,9 @@ class Solution {
         Map.entry('7', new char[] {'p', 'q', 'r', 's'}),
         Map.entry('8', new char[] {'t', 'u', 'v'}),
         Map.entry('9', new char[] {'w', 'x', 'y', 'z'})
-        
     ); 
     
-    public List<String> letterCombinations(String digits) {
+    public static List<String> letterCombinations(String digits) {
         List<String> list = new ArrayList<>();
 
         if (digits.length() == 0 || digits.isEmpty()) {
@@ -22,44 +21,20 @@ class Solution {
 
         if (digits.length() == 1) {
             for (int i = 0; i < HASHMAP.get(digits.charAt(0)).length; i++) {
-                list.add("" + HASHMAP.get(digits.charAt(0))[i]);
+                list.add(String.valueOf(HASHMAP.get(digits.charAt(0))[i]));
             } 
 
             return list;
         } 
 
-        if (digits.length() == 2) {
-            return letterCombinations(digits.charAt(0), digits.charAt(1));            
+        String dig = String.valueOf(digits.charAt(0));
+        List<String> listReuse = letterCombinations(dig);
+        for (int i = 1; i < digits.length(); i++) {
+            letterCombinations(listReuse, digits.charAt(i));
+            listReuse = letterCombinations(listReuse, digits.charAt(i));
         } 
 
-        if (digits.length() > 2) {
-            List<String> listReuse = letterCombinations(digits.charAt(0), digits.charAt(1));
-            for (int i = 2; i < digits.length(); i++) {
-                letterCombinations(listReuse, digits.charAt(i));
-                listReuse = letterCombinations(listReuse, digits.charAt(i));
-            } 
-
-            return listReuse;
-        }
-
-        return new ArrayList<>();
-    } 
-
-    public static List<String> letterCombinations(char a, char b) {
-        List<String> list = new ArrayList<>();
-
-        int len1 = HASHMAP.get(a).length;
-        int len2 = HASHMAP.get(b).length;
-        for (int i = 0; i < len2; i++) {
-            list.add("" + HASHMAP.get(a)[0] + HASHMAP.get(b)[i]);
-            list.add("" + HASHMAP.get(a)[1] + HASHMAP.get(b)[i]);
-            list.add("" + HASHMAP.get(a)[2] + HASHMAP.get(b)[i]);
-            if (2 < len1 - 1) {
-                list.add("" + HASHMAP.get(a)[3] + HASHMAP.get(b)[i]);
-            }
-        }
-        
-        return list;
+        return listReuse;
     } 
 
     public static List<String> letterCombinations(List<String> list, char b) {
