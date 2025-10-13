@@ -1,26 +1,19 @@
 // this solution looks like brute force to me, but i'm not sure
 
 class Solution {
-    public static HashMap<Character, char[]> hashMap = new HashMap<>();
-    public static char[] arr2 = {'a', 'b', 'c'};
-    public static char[] arr3 = {'d', 'e', 'f'};
-    public static char[] arr4 = {'g', 'h', 'i'};
-    public static char[] arr5 = {'j', 'k', 'l'};
-    public static char[] arr6 = {'m', 'n', 'o'};
-    public static char[] arr7 = {'p', 'q', 'r', 's'};
-    public static char[] arr8 = {'t', 'u', 'v'};
-    public static char[] arr9 = {'w', 'x', 'y', 'z'};
+    public static final Map<Character, char[]> HASHMAP = Map.ofEntries(
+        Map.entry('2', new char[] {'a', 'b', 'c'}),
+        Map.entry('3', new char[] {'d', 'e', 'f'}),
+        Map.entry('4', new char[] {'g', 'h', 'i'}),
+        Map.entry('5', new char[] {'j', 'k', 'l'}),
+        Map.entry('6', new char[] {'m', 'n', 'o'}),
+        Map.entry('7', new char[] {'p', 'q', 'r', 's'}),
+        Map.entry('8', new char[] {'t', 'u', 'v'}),
+        Map.entry('9', new char[] {'w', 'x', 'y', 'z'})
+        
+    ); 
     
-    public static List<String> letterCombinations(String digits) {
-        hashMap.put('2', arr2);
-        hashMap.put('3', arr3);
-        hashMap.put('4', arr4);
-        hashMap.put('5', arr5);
-        hashMap.put('6', arr6);
-        hashMap.put('7', arr7);
-        hashMap.put('8', arr8);
-        hashMap.put('9', arr9);
-
+    public List<String> letterCombinations(String digits) {
         List<String> list = new ArrayList<>();
 
         if (digits.length() == 0 || digits.isEmpty()) {
@@ -28,8 +21,8 @@ class Solution {
         } 
 
         if (digits.length() == 1) {
-            for (int i = 0; i < hashMap.get(digits.charAt(0)).length; i++) {
-                list.add("" + hashMap.get(digits.charAt(0))[i]);
+            for (int i = 0; i < HASHMAP.get(digits.charAt(0)).length; i++) {
+                list.add("" + HASHMAP.get(digits.charAt(0))[i]);
             } 
 
             return list;
@@ -53,26 +46,16 @@ class Solution {
     } 
 
     public static List<String> letterCombinations(char a, char b) {
-
         List<String> list = new ArrayList<>();
 
-        hashMap.put('2', arr2);
-        hashMap.put('3', arr3);
-        hashMap.put('4', arr4);
-        hashMap.put('5', arr5);
-        hashMap.put('6', arr6);
-        hashMap.put('7', arr7);
-        hashMap.put('8', arr8);
-        hashMap.put('9', arr9);
-
-        int len1 = hashMap.get(a).length;
-        int len2 = hashMap.get(b).length;
+        int len1 = HASHMAP.get(a).length;
+        int len2 = HASHMAP.get(b).length;
         for (int i = 0; i < len2; i++) {
-            list.add("" + hashMap.get(a)[0] + hashMap.get(b)[i]);
-            list.add("" + hashMap.get(a)[1] + hashMap.get(b)[i]);
-            list.add("" + hashMap.get(a)[2] + hashMap.get(b)[i]);
+            list.add("" + HASHMAP.get(a)[0] + HASHMAP.get(b)[i]);
+            list.add("" + HASHMAP.get(a)[1] + HASHMAP.get(b)[i]);
+            list.add("" + HASHMAP.get(a)[2] + HASHMAP.get(b)[i]);
             if (2 < len1 - 1) {
-                list.add("" + hashMap.get(a)[3] + hashMap.get(b)[i]);
+                list.add("" + HASHMAP.get(a)[3] + HASHMAP.get(b)[i]);
             }
         }
         
@@ -80,27 +63,18 @@ class Solution {
     } 
 
     public static List<String> letterCombinations(List<String> list, char b) {
-        hashMap.put('2', arr2);
-        hashMap.put('3', arr3);
-        hashMap.put('4', arr4);
-        hashMap.put('5', arr5);
-        hashMap.put('6', arr6);
-        hashMap.put('7', arr7);
-        hashMap.put('8', arr8);
-        hashMap.put('9', arr9);
-
         List<String> listNew = new ArrayList<>();
 
-        int len2 = hashMap.get(b).length;
+        int len2 = HASHMAP.get(b).length;
         for (int i = 0; i < list.size(); i++) {
-            listNew.add(list.get(i) + hashMap.get(b)[0]);
-            listNew.add(list.get(i) + hashMap.get(b)[1]);
-            listNew.add(list.get(i) + hashMap.get(b)[2]);
+            listNew.add(list.get(i) + HASHMAP.get(b)[0]);
+            listNew.add(list.get(i) + HASHMAP.get(b)[1]);
+            listNew.add(list.get(i) + HASHMAP.get(b)[2]);
             if (2 < len2 - 1) {
-                listNew.add(list.get(i) + hashMap.get(b)[3]);
+                listNew.add(list.get(i) + HASHMAP.get(b)[3]);
             }
         }
 
         return listNew;
-    }
+    } 
 }
