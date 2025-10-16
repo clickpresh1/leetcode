@@ -3,7 +3,6 @@ class Solution {
         int n = height.length;
         int[] L = new int[n];
         int[] R = new int[n];
-        int[] S = new int[n];
         int x = height[0];
         int y = height[n - 1];
         int sum = 0;
