@@ -5,7 +5,7 @@ class Solution {
         boolean[] boos = new boolean[n + 1];
         int currBoolFalseIndex = 0;
         for (int i = 0; i < n; i++) {
-            int a = Math.floorMod(nums[i], value);
+            int a = ((nums[i] % value) + value) % value;
             nums[i] = a + (freq[a] * value);
             freq[a] += 1;
             int x = nums[i];
@@ -23,6 +23,6 @@ class Solution {
             } else break;
         }
         
-        return currBoolFalseIndex;
+        return currBoolFalseIndex; 
     } 
 } 
