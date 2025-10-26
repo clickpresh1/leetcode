@@ -9,17 +9,11 @@ class Solution {
     } 
 
     public static void backtrack(int[] nums, List<List<Integer>> list, List<Integer> temp, int x) {
-        if ((temp.size() == nums.length) && (!(list.contains(temp)))) {
-            list.add(new ArrayList<>(temp));
-            return;
-        }
-        else {
-            for (int i = x; i < nums.length; i++) {
+        for (int i = x; i < nums.length; i++) {
                 temp.add(nums[i]);
                 if (!(list.contains(temp))) list.add(new ArrayList<>(temp));
                 backtrack(nums, list, temp, i + 1);
                 temp.remove(temp.size() - 1);
-            }
         }
     }
 }
