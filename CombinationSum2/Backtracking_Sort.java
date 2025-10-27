@@ -10,8 +10,10 @@ class Solution {
 
     public static void backtrack(int[] candidates, int target, List<List<Integer>> list, List<Integer> temp, int x) {
         if (target < 0) return;
-        else if ((target == 0)) list.add(new ArrayList<>(temp));
-        else {
+        else if ((target == 0)) {
+            list.add(new ArrayList<>(temp));
+            return;
+        } else {
             int L = -1;
             for (int i = x; i < candidates.length; i++) {
                 if (L == candidates[i]) continue;
