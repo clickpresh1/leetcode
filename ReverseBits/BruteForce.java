@@ -1,20 +1,13 @@
 class Solution {
     public int reverseBits(int n) {
+        if (n == 0) return 0;
         StringBuilder sb = new StringBuilder();
 
-        int rem = n % 2;
-        n /= 2;
-        sb.append(rem);
-
         while (n > 0) {
-            rem = n % 2;
-            sb.append(rem);
-
-            n /= 2;
+            int b = n & 1;
+            sb.append(b);
+            n >>= 1;
         } 
-
-        rem = n % 2;
-        sb.append(rem);
 
         int x = 32 - sb.length();
         String s = "0".repeat(x);
