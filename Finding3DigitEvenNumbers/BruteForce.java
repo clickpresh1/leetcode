@@ -13,15 +13,12 @@ class Solution {
                 sum2 = (sum2 * 10) + digits[j];
                 for (int k = 0; k < digits.length; k++) {
                     if ((j == k) || (i == k)) continue;
+                    if ((digits[k] % 2) != 0) continue;
                     int sum3 = sum2;
                     sum3 = (sum3 * 10) + digits[k];
-                    if ((sum3 >= 100) && (sum3 <= 999)) {
-                        if ((sum3 % 2) == 0) set.add(sum3);
-                    }
+                    set.add(sum3);
                 } 
             } 
-
-            
         }
         
         int[] arr = new int[set.size()];
