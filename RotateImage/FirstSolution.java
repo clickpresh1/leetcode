@@ -1,11 +1,6 @@
 // Swap rows and transpose matrix, and brute force
 // Swap rows and transpose matrix, and brute force
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-
 public class Solution {
     public int[][] rotate(int[][] nums){
         HashSet<ArrayList<Integer>> hashSet = new HashSet<>();
