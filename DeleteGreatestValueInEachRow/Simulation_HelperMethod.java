@@ -24,11 +24,7 @@ class Solution {
                 }
             } 
 
-            mat[i][locMxIndx] = -2;
-
-            int temp = mat[i][locMxIndx];
             mat[i][locMxIndx] = mat[i][n - 1];
-            mat[i][n - 1] = temp;
 
             if (locMx > mx) mx = locMx;
         } 
