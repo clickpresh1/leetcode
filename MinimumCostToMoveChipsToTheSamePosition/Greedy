@@ -9,4 +9,7 @@ class Solution {
 
         return (countEven < countOdd) ? countEven : countOdd;
     }
-}
+} 
+
+// i was able to solbve this, bit i'm not sure i'll be able to solve this problem this good time next time... there's still some thing about it that eludes me...
+
