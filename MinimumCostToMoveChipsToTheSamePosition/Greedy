@@ -1,0 +1,12 @@
+class Solution {
+    public int minCostToMoveChips(int[] position) {
+        int countEven = 0, countOdd = 0;
+
+        for (int pos : position) {
+            if ((pos & 1) == 0) countEven++;
+            else countOdd++;
+        } 
+
+        return (countEven < countOdd) ? countEven : countOdd;
+    }
+}
