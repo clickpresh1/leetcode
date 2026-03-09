@@ -2,7 +2,7 @@ class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         int m = nums1.length, n = nums2.length;
         Stack<Integer> stack = new Stack<>();
-        int[] pam = new int[10001];
+        int[] map = new int[10001];
 
         for (int i = 0; i < n; i++) {
             int item = nums2[i];
@@ -10,14 +10,14 @@ class Solution {
             while ((!stack.isEmpty()) && (item > stack.peek())) {
                 int f = stack.pop();
 
-                pam[f] = item + 1;
+                map[f] = item + 1;
             }
 
             stack.push(item);
         } 
 
         for (int i = 0; i < m; i++) {
-            int f = pam[nums1[i]] - 1;
+            int f = map[nums1[i]] - 1;
             
             nums1[i] = (f > 0) ? f : - 1; 
         } 
